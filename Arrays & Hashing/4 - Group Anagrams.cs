@@ -5,7 +5,8 @@ public class Solution {
         Dictionary<string, List<string>> groupAnagrams = new Dictionary<string, List<string>>();
         foreach (string word in strs) {
             int[] intArray = new char[26];
-            foreach (int letter in word) {  // doesn't work for certain case 10 b's then a c and 1b then t10 c's  ---> key becomes 101..... 101......
+            foreach (int letter in word) {  // doesn't work for certain case ["bdddddddddd","bbbbbbbbbbc"]  ---> [010100000000000000000000000, 010100000000000000000000000]
+
                 intArray[letter - 'a']++;
             }
             string key = string.Join("", intArray);
